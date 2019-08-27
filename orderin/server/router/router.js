@@ -22,14 +22,18 @@ router.route('/').post((req, res) => {
   let orders = req.body.orders && req.body.orders.split(',').map(order => order.trim());
   let notes = [req.body.note];
   let ratings = [req.body.rating];
+  let ratingCount = 1;
   let prices = [req.body.price];
+  let priceCount = 1;
   Restaurant.create({
     name,
     location,
     orders,
     notes,
     ratings,
-    prices
+    ratingCount,
+    prices,
+    priceCount
   })
     .then(restaurant => res.status(201).json(restaurant))
     .catch(err => res.status(400).json(err));
@@ -77,7 +81,7 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/:id').delete((req, res) => {
-  Assignment.findByIdAndDelete(req.params.id)
+  Restaurant.findByIdAndDelete(req.params.id)
   .then(() => res.sendStatus(204))
   .catch(err => res.status(404).json(err))
 });
