@@ -1,7 +1,6 @@
 import React from 'react';
-import PlusLogo from '../style/icons/plus.svg';
+import AddEditModal from './AddEditModal';
 import DeleteLogo from '../style/icons/trash-2.svg';
-import EditLogo from '../style/icons/edit-2.svg';
 import '../style/custom.css';
 
 export default class Restaurants extends React.Component {
@@ -24,8 +23,10 @@ export default class Restaurants extends React.Component {
                             )}
                         <footer className="blockquote-footer">Ivo React
                             <cite title="Source Title">Source Title</cite>
-                            <img src={DeleteLogo} onClick={e => this.onClickDelete(e)} className="cardButton"/>
-                            <img src={EditLogo} className="cardButton"/>
+                            <div>
+                                <img src={DeleteLogo} onClick={e => this.onClickDelete(e)} className="cardButton"/>
+                            </div>
+                            <AddEditModal isEdit={true} restaurant={this.props.restaurant}/>
                         </footer>
                         </blockquote>
                     </div>

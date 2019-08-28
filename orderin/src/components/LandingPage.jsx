@@ -1,7 +1,7 @@
   
 import React from 'react';
 import Restaurant from './Restaurant';
-import AddModal from './AddModal';
+import AddEditModal from './AddEditModal';
 import Constants from '../constants/constants';
 import axios from 'axios';
 
@@ -66,14 +66,14 @@ export default class LandingPage extends React.Component {
                         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
                             <h1 className="display-4">{this.state.location}</h1>
                         </div>
-                        <AddModal />
+                        <AddEditModal isEdit={false}/>
                     </div> :
                     <div className="jumbotron">
                         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
                             <h1 className="display-4">Hangry?</h1>
                             <p className="lead">We got you. Choose a location below</p>
                         </div>
-                        <AddModal />
+                        <AddEditModal isEdit={false}/>
                     </div>
                 } 
                 <div className="container">
